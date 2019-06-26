@@ -63,6 +63,12 @@ class ProjetController extends Controller
         $input['date_fin'] = $date_fin;
         $input['restant']= $input['montant'];
 
+        if($r->hasFile('img')){
+            $fileName = time().'.'.$r->img->getClientOriginalExtension();
+            $r->img->move(public_path('images/projets'), $fileName);
+            $input['img']= $fileName;
+        }
+        
         $proj = p::create($input);
 
         return response()->json([
@@ -97,6 +103,13 @@ class ProjetController extends Controller
             return response()->json($response);
         }
         $input=$r->all();
+        
+        if($r->hasFile('img')){
+            $fileName = time().'.'.$r->img->getClientOriginalExtension();
+            $r->img->move(public_path('images/projets'), $fileName);
+            $input['img']= $fileName;
+        }
+        
         $proj->update($input);
 
         return response()->json([
@@ -231,6 +244,15 @@ class ProjetController extends Controller
             'restant'=>$rest
         ]);
 
+        return response()->json([
+            'success'=>true,
+            'message'=>'donnation accepted',
+            'data'=>$proj
+        ],201);
+    }
+    public function topvisited()
+    {
+        $proj = p::orderBy('visited','desc')->get();
         return response()->json([
             'success'=>true,
             'message'=>'donnation accepted',

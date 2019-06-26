@@ -62,6 +62,7 @@ Route::prefix('projet')->group(function(){
     Route::post('retrieve/comments','ProjetController@getComments');
 
     Route::post('fairedon','ProjetController@faireDon');
+    Route::get('get/top','ProjetController@topvisited');
 });
 
 Route::prefix('comment')->group(function(){

@@ -23,6 +23,7 @@ class CreateProjetsTable extends Migration
             $table->double('restant')->nullable();
             $table->date('date_debut');
             $table->text('description');
+            $table->string('img')->nullable();
             $table->integer('visited')->default(0);
             $table->foreign('demandeur_id')->references('demandeur_id')->on('demandeurs')->onDelete('cascade');
             $table->foreign('moderateur_id')->references('moderateur_id')->on('moderateurs');
