@@ -103,7 +103,7 @@ class ProjetController extends Controller
             return response()->json($response);
         }
         $input=$r->all();
-        
+
         if($r->hasFile('img')){
             $fileName = time().'.'.$r->img->getClientOriginalExtension();
             $r->img->move(public_path('images/projets'), $fileName);
@@ -252,7 +252,7 @@ class ProjetController extends Controller
     }
     public function topvisited()
     {
-        $proj = p::orderBy('visited','desc')->get();
+        $proj = p::orderBy('visited','desc')->take(5)->get();
         return response()->json([
             'success'=>true,
             'message'=>'donnation accepted',
