@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register','RegisterController@register');
 
+
 Route::prefix("admin")->group(function (){
     Route::get('','AdminController@index');
     Route::get('{id_admin}','AdminController@show');
