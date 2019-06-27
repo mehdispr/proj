@@ -65,6 +65,7 @@ Route::prefix('projet')->group(function(){
 
     Route::post('fairedon','ProjetController@faireDon');
     Route::get('get/top','ProjetController@topvisited');
+    Route::get('get/new','ProjetController@newProjects');
 });
 
 Route::prefix('comment')->group(function(){

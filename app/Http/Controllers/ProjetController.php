@@ -252,7 +252,17 @@ class ProjetController extends Controller
     }
     public function topvisited()
     {
-        $proj = p::orderBy('visited','desc')->take(5)->get();
+        $proj = p::orderBy('visited','desc')->take(6)->get();
+        return response()->json([
+            'success'=>true,
+            'message'=>'donnation accepted',
+            'data'=>$proj
+        ],201);
+    }
+    
+    public function newProjects()
+    {
+        $proj = p::orderBy('date_debut','desc')->take(6)->get();
         return response()->json([
             'success'=>true,
             'message'=>'donnation accepted',
