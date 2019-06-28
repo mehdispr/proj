@@ -15,8 +15,7 @@ class DonSeeder extends Seeder
     public function run()
     {
         $f = faker::create();
-        DB::table('dons')->delete();
-        foreach (range(1,600) as $i) {
+        foreach (range(1,300) as $i) {
             DB::table('dons')->insert([
                 'paiement_id'=>rand(1,600),
                 'projet_id'=>rand(1,100),

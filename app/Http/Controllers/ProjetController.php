@@ -17,7 +17,8 @@ class ProjetController extends Controller
     
     public function index()
     {
-        return new pc(p::all());
+        return DB::table('projets')->paginate(10);
+        // return new pc(p::all());
     }
 
     public function show($id)

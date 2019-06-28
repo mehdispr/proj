@@ -22,6 +22,7 @@ class CreateProjetsTable extends Migration
             $table->double('montant')->default(0);
             $table->double('restant')->nullable();
             $table->date('date_debut');
+            $table->date('date_fin');
             $table->text('description');
             $table->string('img')->nullable();
             $table->integer('visited')->default(0);

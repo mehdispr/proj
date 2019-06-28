@@ -15,7 +15,7 @@ class PaiementSeeder extends Seeder
     {
         $f = faker::create();
         DB::table('paiements')->delete();
-        foreach (range(1,600) as $i) {
+        foreach (range(1,300) as $i) {
             DB::table('paiements')->insert([
                 'donateur_id'=>rand(1,30),
                 'methode'=>$f->randomElement($array=array('online','check','virement','cash')),
