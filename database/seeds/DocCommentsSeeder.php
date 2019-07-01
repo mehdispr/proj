@@ -15,7 +15,6 @@ class DocCommentsSeeder extends Seeder
     public function run()
     {
         $f = faker::create();
-        DB::table('documents')->delete();
         foreach (range(1,300) as $i) {
             DB::table('documents')->insert([
                 'projet_id'=>rand(1,100),

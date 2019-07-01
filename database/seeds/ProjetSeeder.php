@@ -16,11 +16,14 @@ class ProjetSeeder extends Seeder
         $f = faker::create();
         DB::table('projets')->delete();
         foreach (range(1,100) as $i) {
-            $price= $f->numberBetween($min=100000, $max=1000000);
-            $rest= $price - $f->randomElement($array = array (8120,451,10752,54231,54521,14000,632305,65000,65656,61003,23002,65665,62325,6226,2251));
+            $price= $f->randomElement($array = array (6000,841050,10000,23600,40000,45200,64125));
+            $pr = $f->randomElement($array = array (45,26,75,10,5,84,36,60,31,44,97));
+            $rest= $price - (($price*$pr)/100);
 
-            $dd=$f->date($format = 'Y-m-d', $min = 'now');
+            $dd=$f->date($format = 'Y-m-d', $min = '2017-12-01');
             $df = date('Y-m-d', strtotime("+1 months", strtotime($dd)));
+            
+
             DB::table('projets')->insert([
                 'demandeur_id'=>rand(1,50),
                 'moderateur_id'=>rand(1,10),
