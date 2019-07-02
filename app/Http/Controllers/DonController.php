@@ -21,8 +21,6 @@ class DonController extends Controller
         $v=Validator::make($r->all(),[
             'paiement_id'=>'required',
             'projet_id'=>'required',
-            'montant'=>'required',
-            'date'=>'required',
         ]);
 
         if($v->fails()){

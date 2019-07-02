@@ -19,8 +19,6 @@ class PaiementController extends Controller
     {
         $v= Validator::make($r->all(),[
             'donateur_id'=>'required|numeric',
-            'methode'=>'required|string',
-            'date'=>'required',
             'montant'=>'required|numeric',
             'status'=>'required|string',
         ]);

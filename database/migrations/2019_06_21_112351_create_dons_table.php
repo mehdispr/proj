@@ -17,8 +17,6 @@ class CreateDonsTable extends Migration
             $table->integer('don_id')->autoIncrement();
             $table->integer('paiement_id');
             $table->integer('projet_id');
-            $table->double('montant');
-            $table->date('date');
             $table->boolean('hide')->default(false);
             $table->foreign('projet_id')->references('projet_id')->on('projets')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('paiement_id')->references('paiement_id')->on('paiements')->onDelete('cascade')->onUpdate('cascade');

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Don extends Model
 {
-    protected $fillable = ['don_id','id_paiement','id_projet','montant','date','hide'];
+    protected $fillable = ['don_id','id_paiement','id_projet','hide'];
     protected $primaryKey = 'don_id';
     protected $table = 'dons';
     
