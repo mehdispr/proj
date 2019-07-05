@@ -17,7 +17,7 @@ class DonSeeder extends Seeder
         $f = faker::create();
         foreach (range(1,300) as $i) {
             DB::table('dons')->insert([
-                'paiement_id'=>rand(1,300),
+                'donateur_id'=>rand(1,30),
                 'projet_id'=>rand(1,100),
                 'hide'=>$f->randomElement($array=array(true,false)),
             ]);

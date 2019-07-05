@@ -32,6 +32,7 @@ return array(
     'App\\Http\\Controllers\\PaiementController' => $baseDir . '/app/Http/Controllers/PaiementController.php',
     'App\\Http\\Controllers\\ProjetController' => $baseDir . '/app/Http/Controllers/ProjetController.php',
     'App\\Http\\Controllers\\RegisterController' => $baseDir . '/app/Http/Controllers/RegisterController.php',
+    'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',

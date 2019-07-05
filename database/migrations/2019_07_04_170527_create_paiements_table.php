@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class CreatePaiementsTable extends Migration
 {
     /**
@@ -15,11 +16,11 @@ class CreatePaiementsTable extends Migration
     {
         Schema::create('paiements', function (Blueprint $table) {
             $table->integer('paiement_id')->autoIncrement();
-            $table->integer('donateur_id');
-            $table->date('date')->default();
+            $table->integer('don_id');
+            $table->date('date')->useCurrent();
             $table->double('montant');
             $table->string('status');
-            $table->foreign('donateur_id')->references('donateur_id')->on('donateurs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('don_id')->references('don_id')->on('dons')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

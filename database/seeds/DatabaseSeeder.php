@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(ProjetSeeder::class);
         $this->call(DocCommentsSeeder::class);
-        $this->call(PaiementSeeder::class);
         $this->call(DonSeeder::class);
+        $this->call(PaiementSeeder::class);
     }
 }

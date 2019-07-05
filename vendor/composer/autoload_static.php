@@ -507,6 +507,7 @@ class ComposerStaticInit987908f7d69d49926c68c570a8e99b23
         'App\\Http\\Controllers\\PaiementController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaiementController.php',
         'App\\Http\\Controllers\\ProjetController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjetController.php',
         'App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

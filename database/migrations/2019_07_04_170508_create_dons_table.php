@@ -15,11 +15,11 @@ class CreateDonsTable extends Migration
     {
         Schema::create('dons', function (Blueprint $table) {
             $table->integer('don_id')->autoIncrement();
-            $table->integer('paiement_id');
+            $table->integer('donateur_id');
             $table->integer('projet_id');
             $table->boolean('hide')->default(false);
             $table->foreign('projet_id')->references('projet_id')->on('projets')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('paiement_id')->references('paiement_id')->on('paiements')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('donateur_id')->references('donateur_id')->on('donateurs')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

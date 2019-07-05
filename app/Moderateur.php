@@ -9,6 +9,6 @@ class Moderateur extends Model
     protected $fillable = ['moderateur_id','nom','prenom','cin','nationalite','ville','adresse','zip','tel','email','photo','type','mdp','active'];
     protected $primaryKey = 'moderateur_id';
     protected $table = 'moderateurs';
-    protected $hidden = ['mdp', 'type',];
+    protected $hidden = ['mdp'];
     public $timestamps = false;
 }

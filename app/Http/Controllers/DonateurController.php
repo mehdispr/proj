@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Donateur as d;
+use App\Don;
 use Illuminate\Http\Request;
 use Validator;
 use App\Http\Resources\DonateurRessource as dr;
@@ -128,4 +129,32 @@ class DonateurController extends Controller
             'data' => $donateur
         ],201);
     }
+
+    public function donnation(Request $r)
+    {
+        $v=Validator::make($r->all(),[
+            'donateur_id'=>'required'
+        ]);
+
+        if($v->fails()){
+            $response = [
+                'success' => false,
+                'message' => 'Error',
+                'errors' => $v->errors(),
+            ];
+            return response()->json($response);
+        }
+
+        $don =Don::where('donateur_id',$r->donateur_id)
+                ->join('projets','projets.projet_id','=','dons.projet_id')
+                ->join('paiements','paiements.don_id','=','dons.don_id')
+                ->select('dons.don_id','projets.titre','projets.montant as montant_projet','paiements.montant as donnation')->get();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Donnation retrieved',
+            'data' => $don
+        ],201);
+    }
+    
 }

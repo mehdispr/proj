@@ -9,7 +9,7 @@ class Demandeur extends Model
     protected $fillable = ['demandeur_id','nom','prenom','cin','nationalite','ville','adresse','zip','tel','email','photo','type','mdp'];
     protected $primaryKey = 'demandeur_id';
     protected $table = 'demandeurs';
-    protected $hidden = ['mdp', 'type',];
+    protected $hidden = ['mdp'];
     public $timestamps = false;
 
     public function getProjet(){

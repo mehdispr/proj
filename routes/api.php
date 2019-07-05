@@ -12,14 +12,15 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-    
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register','RegisterController@register');
 
+Route::post('register','RegisterController@register');
+Route::post('login','UserController@login');
 
 Route::prefix("admin")->group(function (){
     Route::get('','AdminController@index');
@@ -37,17 +38,29 @@ Route::post('moderateur/','ModerateurController@store');
 Route::post('moderateur/{id_moderateur}','ModerateurController@update');
 Route::delete('moderateur/{id_moderateur}','ModerateurController@destroy');
 
-Route::get('donateur','DonateurController@index');
-Route::get('donateur/{id}','DonateurController@show');
-Route::post('donateur/','DonateurController@store');
-Route::post('donateur/{id}','DonateurController@update');
-Route::delete('donateur/{id}','DonateurController@destroy');
+Route::prefix('donateur')->group(function(){
 
-Route::get('demandeur','DemandeurController@index');
-Route::get('demandeur/{id}','DemandeurController@show');
-Route::post('demandeur/','DemandeurController@store');
-Route::post('demandeur/{id}','DemandeurController@update');
-Route::delete('demandeur/{id}','DemandeurController@destroy');
+    Route::get('','DonateurController@index');
+    Route::get('/{id}','DonateurController@show');
+    Route::post('/','DonateurController@store');
+    Route::post('edit/{id}','DonateurController@update');
+    Route::delete('/{id}','DonateurController@destroy');
+
+
+    Route::post('donnation/','DonateurController@donnation');
+
+});
+
+Route::prefix('demandeur')->group(function(){
+
+    Route::get('','DemandeurController@index');
+    Route::get('/{id}','DemandeurController@show');
+    Route::post('/','DemandeurController@store');
+    Route::post('edit/{id}','DemandeurController@update');
+    Route::delete('/{id}','DemandeurController@destroy');
+
+    Route::post('/demandes','ProjetController@getprojects');
+});
 
 Route::prefix('projet')->group(function(){
     
@@ -63,6 +76,9 @@ Route::prefix('projet')->group(function(){
     Route::post('filtre/categorie','ProjetController@filtreCat');
     Route::post('retrieve/comments','ProjetController@getComments');
 
+    Route::get('getdemandeur/{id}','ProjetController@getdemandeur');
+
+    Route::post('getedon','ProjetController@getdon');
     Route::post('fairedon','ProjetController@faireDon');
     Route::get('get/top','ProjetController@topvisited');
     Route::get('get/new','ProjetController@newProjects');
@@ -76,7 +92,7 @@ Route::prefix('comment')->group(function(){
     Route::delete('{id}','CommentaireController@destroy');
 });
 
-Route::prefix('paiment')->group(function(){
+Route::prefix('paiement')->group(function(){
     Route::get('','PaiementController@index');
     Route::get('{id}','PaiementController@show');
     Route::post('','PaiementController@create');
